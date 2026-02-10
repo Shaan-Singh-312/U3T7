@@ -10,12 +10,15 @@ public class RaceUtility {
 
     public static String makeProper(String s){
         String str = "";
-        int i = 0;
-        while (i> 1){
-            i = s.indexOf(" ");
-            str += s.substring(0,1) + s.substring(1,i).toLowerCase();
+        int i = s.indexOf(" ");
+        while (i > -1){
+
+            str += s.substring(0,1).toUpperCase() + s.substring(1,i).toLowerCase() + " ";
             s = s.substring(i+1);
+            i = s.indexOf(" ");
         }
+
+        str += s.substring(0,1).toUpperCase() + s.substring(1).toLowerCase();
         return str;
     }
 }
